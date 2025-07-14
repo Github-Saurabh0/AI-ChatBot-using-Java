@@ -14,12 +14,6 @@ java ChatBot
 
 ---
 
-Would you like me to add:
-- ✅ GUI using Java Swing? Adding Soon
-- ✅ REST API using Spring Boot? Adding Soon
-
----
-
 Bonus Ideas:
 Add GUI using Swing
 Integrate with OpenAI GPT via API (if internet-based)
