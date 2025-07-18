@@ -13,7 +13,7 @@ public class ChatBot {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("🤖 Welcome to Java AI ChatBot! Type 'exit' to quit.");
+        System.out.println("Welcome to Java AI ChatBot! Type 'exit' to quit.");
 
         while (true) {
             System.out.print("You: ");
