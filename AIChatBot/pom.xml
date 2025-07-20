@@ -1,71 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>com.wearl</groupId>
     <artifactId>AIChatBot</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
- 
+
+    <name>AIChatBot</name>
+    <description>Java AI ChatBot using FreeTTS</description>
+
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>17</maven.compiler.release>
-        <exec.mainClass>com.wearl.aichatbot.AIChatBot</exec.mainClass>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <!-- FreeTTS core -->
         <dependency>
             <groupId>com.sun.speech</groupId>
             <artifactId>freetts</artifactId>
             <version>1.2.2</version>
         </dependency>
+
+        <!-- FreeTTS voices and lexicon -->
         <dependency>
             <groupId>com.sun.speech</groupId>
             <artifactId>cmulex</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>D:\AI-ChatBot-using-Java\AIChatBot\lib\cmulex.jar</systemPath>
+            <version>1.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.sun.speech</groupId>
             <artifactId>cmutimelex</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>D:\AI-ChatBot-using-Java\AIChatBot\lib\cmutimelex.jar</systemPath>
+            <version>1.2.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.sun.speech</groupId>
             <artifactId>cmu_us_kal</artifactId>
-            <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>D:\AI-ChatBot-using-Java\AIChatBot\lib\cmu_us_kal.jar</systemPath>
+            <version>1.2.2</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
+            <!-- Compiler plugin -->
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
                 <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.wearl.aichatbot.Main</mainClass>
-                        </manifest>
-                    </archive>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
+            </plugin>
+
+            <!-- Exec plugin to run main class -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <mainClass>com.wearl.aichatbot.Main</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>
