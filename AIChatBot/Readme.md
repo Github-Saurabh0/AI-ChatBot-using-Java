@@ -59,6 +59,10 @@ AIChatBot/
 4. Add your OpenAI API key in `config/config.properties`.
 5. Run `Main.java`.
 
+## Terminal (If Netbeans Not work)
+
+1. java -cp "target/AIChatBot-1.0.0.jar;lib/*" com.wearl.aichatbot.Main
+
 ## Requirements
 
 - Java 8+
